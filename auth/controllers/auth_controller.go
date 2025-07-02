@@ -3,9 +3,9 @@ package controllers
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/rupesh-sengar/auth/services"
-	"github.com/rupesh-sengar/auth/utils"
-	"github.com/rupesh-sengar/auth/utils/types"
+	"github.com/rupesh-sengar/golang-collection/auth/services"
+	"github.com/rupesh-sengar/golang-collection/auth/utils"
+	"github.com/rupesh-sengar/golang-collection/auth/utils/types"
 	"net/http"
 	"strings"
 )

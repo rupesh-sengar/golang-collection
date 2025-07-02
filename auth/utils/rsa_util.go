@@ -4,7 +4,7 @@ import (
 	"crypto/rsa"
 	"encoding/base64"
 	"errors"
-	"github.com/rupesh-sengar/auth/config"
+	"github.com/rupesh-sengar/golang-collection/auth/config"
 	"strings"
 )
 

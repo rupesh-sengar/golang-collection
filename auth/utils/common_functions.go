@@ -7,8 +7,8 @@ import (
 	"time"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"github.com/rupesh-sengar/auth/domain"
-	"github.com/rupesh-sengar/auth/infra/mongo_config"
+	"github.com/rupesh-sengar/golang-collection/auth/domain"
+	"github.com/rupesh-sengar/golang-collection/auth/infra/mongo_config"
 )
 
 func CheckUserStatus(email string) (domain.UserStatus, error) {

@@ -5,7 +5,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/rupesh-sengar/auth/domain"
+	"github.com/rupesh-sengar/golang-collection/auth/domain"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"

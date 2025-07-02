@@ -8,8 +8,8 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-	"github.com/rupesh-sengar/auth/config"
-	"github.com/rupesh-sengar/auth/routes"
+	"github.com/rupesh-sengar/golang-collection/auth/config"
+	"github.com/rupesh-sengar/golang-collection/auth/routes"
 )
 
 func main() {
