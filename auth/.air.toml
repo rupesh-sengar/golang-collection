@@ -1,0 +1,24 @@
+# .air.toml
+# Config file for air: https://github.com/cosmtrek/air
+
+# Working directory
+# . is the project root
+root = "."
+tmp_dir = "tmp"
+
+[build]
+# The command to run your main.go file.
+# Air will change to the `root` directory before running this command.
+cmd = "go.exe build -o ./tmp/main.exe cmd/server/main.go"
+
+# Binary file to execute.
+bin = "tmp/main.exe"
+
+# Files and directories to exclude.
+exclude_dir = ["assets", "tmp", "vendor", "testdata"]
+
+# Extensions to watch.
+include_ext = ["go", "tpl", "tmpl", "html", "toml"]
+
+# Log name
+log = "air.log"
