@@ -1,14 +1,43 @@
 package main
 
 import (
-	"fmt"
-	"git"
-	"github.com/rupesh-sengar/golang-collection/auth"
+	"log"
+	"os"
+	"time"
+
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
+	"github.com/rupesh-sengar/golang-collection/auth/config"
+	"github.com/rupesh-sengar/golang-collection/auth/routes"
 )
 
-func main(){
-	fmt.Println("Welcome to Golang Collection")
-	fmt.Println("This is the Auth Service")
-	auth.StartServer()
-	fmt.Println("Auth Service started successfully")
+func main() {
+	if err := godotenv.Overload("./auth/.env"); err != nil {
+		log.Println("No .env file found. Using system environment variables.")
+	}
+
+	err := config.LoadRSAKeys()
+	if err != nil {
+		log.Fatalf("Failed to load RSA keys: %v", err)
+	}
+
+	r := gin.Default()
+	config := cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Accept", "Authorization"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+		MaxAge:           12 * time.Hour,
+	}
+	r.Use(cors.New(config))
+	routes.RegisterRoutes(r)
+
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	log.Printf("Server is running on port %s", port)
+	r.Run(":" + port)
 }
