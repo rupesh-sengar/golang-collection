@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	if err := godotenv.Overload("./auth/.env"); err != nil {
+	if err := godotenv.Overload(".env"); err != nil {
 		log.Println("No .env file found. Using system environment variables.")
 	}
 
