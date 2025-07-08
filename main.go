@@ -9,12 +9,17 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/rupesh-sengar/golang-collection/auth/config"
+	"github.com/rupesh-sengar/golang-collection/auth/database"
 	"github.com/rupesh-sengar/golang-collection/auth/routes"
 )
 
 func main() {
 	if err := godotenv.Overload(".env"); err != nil {
 		log.Println("No .env file found. Using system environment variables.")
+	}
+
+	if err := database.ConnectDB(); err != nil {
+		log.Fatalf("Failed to connect to MongoDB: %v", err)
 	}
 
 	err := config.LoadRSAKeys()
